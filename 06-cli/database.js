@@ -11,7 +11,8 @@ class Database{
     return JSON.parse(arquivo.toString());
   }
   escreverArquivo(){
-
+    await writeFileAsync(this.FILENAME, JSON.stringify(dados));
+    return true;
   }
   async cadastrar(heroi) {
     const dados = await this.obterDadosArquivo();
