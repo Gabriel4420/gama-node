@@ -1,10 +1,10 @@
 # gama-node
 repositório para arquivos do nodeJS da gama academy
 
-# Para Rodar os testes 
+## Para Rodar os testes 
 
-'mocha'
+`mocha`
 
-# Para Rodar o programa
+## Para Rodar o programa
 
 'yarn start | npm start '
