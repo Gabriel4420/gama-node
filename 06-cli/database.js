@@ -32,7 +32,44 @@ class Database{
     const dadosFiltrados = dados.filter(item => id ? item.id === id : true);
     return dadosFiltrados;
   }
+  
+  async remover(id) {
+    if (!id) {
+      await this.escreverArquivo([]);
+      return true;
+    }
 
+    const dados = await this.obterDadosArquivo()
+    const index = dados.findIndex(item => item.id === parseInt(id));
+
+    if(index === -1) {
+      throw Error('O usuario informado não existe')
+    }
+    dados.splice(index,1)
+
+    return await this.escreverArquivo(dados)
+     
+  }
+  async atualizar(id, modificacoes){
+
+    const dados = await this.obterDadosArquivo();
+
+    const indice = dados.findIndex(item => item.id === parseInt(id));
+    if (indice === -1) {
+      throw Error('heroi não existe!');
+    }
+
+    const atual = dados[indice];
+    dados.splice(indice, 1);
+
+    //workaround para remover valores undefined do objeto
+    const objAtualizado = JSON.parse(JSON.stringify(modificacoes));
+    const dadoAtualizado = Object.assign({}, atual, objAtualizado);
+
+    return await this.escreverArquivo([...dados, dadoAtualizado]);
+
+    
+  }
 }
 
 module.exports = new Database();
