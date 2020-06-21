@@ -20,12 +20,10 @@ cd 06-cli -- caso queira entrar na pasta do projeto dos herois
 ## Para executar os testes 
 ```
 >> mocha
-
 ```
 
 ## Para executar o programa
 
 ```
 >> yarn start | npm start 
-
 ```
