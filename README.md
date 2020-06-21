@@ -3,7 +3,7 @@ repositório para arquivos do nodeJS da gama academy
 
 ## Para Rodar os testes 
 
-`mocha`
+mocha
 
 ## Para Rodar o programa
 
