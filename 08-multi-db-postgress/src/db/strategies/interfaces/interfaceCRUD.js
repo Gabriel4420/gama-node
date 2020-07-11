@@ -18,8 +18,9 @@ class ICrud {
     throw new NotImplementedException();
   }
   isConnected(){
-    return this._database.isConnected();
+    throw new NotImplementedException();
   }
+  
 }
 
 module.exports = ICrud
